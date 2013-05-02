@@ -1,0 +1,56 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.testing"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="17" />
+    
+    <supports-screens 
+                  android:anyDensity="true"/>
+
+    <application
+        android:allowBackup = "true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/MainStyle" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="RegistrationActivityOne"
+            android:theme="@style/MainStyle" >
+        </activity>
+        <activity
+            android:name="ChooseWeightActivity"
+            android:theme="@style/MainStyle" >
+        </activity>
+        <activity
+            android:name="ChooseAimActivity"
+            android:theme="@style/MainStyle" >
+        </activity>
+        <activity
+            android:name="ChooseDayActivity"
+            android:theme="@style/MainStyle" >
+        </activity>
+        <activity
+            android:name="SuperMainActivity"
+            android:theme="@style/MainStyleWithActionBar" >
+        </activity>
+        <activity
+            android:name="MyTimer"
+            android:theme="@style/MainStyle" >
+        </activity>
+        
+    </application>
+
+</manifest>

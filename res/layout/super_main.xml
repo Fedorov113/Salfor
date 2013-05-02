@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registrationThreeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+   <!-- <com.example.testing.SeparateCardLayout
+        android:id="@+id/cards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding8"
+        android:paddingRight="@dimen/padding8"
+        android:paddingTop="@dimen/padding8" > --> 
+
+        <LinearLayout
+            android:id="@+id/next_workout_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/SubheaderStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="sans-serif-condenced"
+                android:text="@string/next_workout"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/tinyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Тут дата" />
+
+            <com.example.testing.SeparateCardLayout
+                android:id="@+id/cardsSuper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+            </com.example.testing.SeparateCardLayout>
+        </LinearLayout>
+    <!-- </com.example.testing.SeparateCardLayout> -->
+
+</ScrollView>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/dialog_full_holo_light_1" >
+
+    <TextView
+        android:id="@+id/exerciseName"
+        style="@style/WhiteCondenced20No"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/qqq"
+        android:gravity="fill_vertical"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:text="Тут название упражнения" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/exerciseName" />
+
+    <ImageView
+        android:id="@+id/exerciseIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/view1"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:paddingLeft="8dp"
+        android:src="@drawable/background" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/exerciseIcon"
+        android:layout_marginBottom="4dp"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33" >
+
+            <TextView
+                android:id="@+id/sets"
+                style="@style/MainTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/set_number" />
+
+            <TextView
+                android:id="@+id/setNumberTextView"
+                style="@style/exerciseData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:text="3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33" >
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@color/stroke_color" />
+
+            <TextView
+                android:id="@+id/repeats"
+                style="@style/MainTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/repeats_number" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:background="@color/stroke_color" />
+
+            <TextView
+                android:id="@+id/repeatNumberTextView"
+                style="@style/exerciseData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/repeats"
+                android:gravity="center_horizontal"
+                android:text="10 \n 6 \n 8" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33" >
+
+            <TextView
+                android:id="@+id/weigth"
+                style="@style/MainTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/weight_for_exercise" />
+
+            <TextView
+                android:id="@+id/weight"
+                style="@style/exerciseData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:text="60-75" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/exerciseIcon"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/exerciseIcon"
+        android:layout_toRightOf="@+id/exerciseIcon" >
+
+    <Button
+        android:id="@+id/startExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="true"
+        android:text="НАЧАТЬ" />
+
+    <ImageView
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/startExercise"
+        android:src="@drawable/arrow_icon" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

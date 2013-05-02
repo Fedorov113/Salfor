@@ -1,0 +1,76 @@
+<resources>
+
+    <string name="complete_the_form">Пожалйста, заполните поле</string>
+    
+    <string name="app_name">Salfor</string>
+    <string name="hello">Здравствуйте!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Salfor</string>
+    <string name="creation_or_backup">Пожалуйста, создайте новую учётную запись, или восстановите данные.</string>
+    <string name="create">СОЗДАТЬ ПРОФИЛЬ</string>
+    <string name="backup">ВОССТАНОВИТЬ ПРОФИЛЬ</string>
+    <string name="registration">Регистрация.</string>
+    <string name="enter_data">Пожалуйста, введите свои данные.</string>
+    <string name="name">ИМЯ:</string>
+    <string name="surname">ФАМИЛИЯ:</string>
+    <string name="gender">ПОЛ:</string>
+    <string name="date_of_birth">ДАТА РОЖДЕНИЯ:</string>
+    <string name="next">ПРОДОЛЖИТЬ</string>
+    <string name="my_bday">14/3/1995</string>
+    <string name="close_to_the_end">Осталось определить ваши цели.</string>
+    <string name="weight">ВЕС:</string>
+    <string name="growth">РОСТ:</string>
+
+    <string-array name="pick_gender">
+        <item>Мужчина</item>
+        <item>Женщина</item>
+    </string-array>
+    
+    <string-array name="days_of_week">
+        <item>ПОНЕДЕЛЬНИК</item>
+        <item>ВТОРНИК</item>
+        <item>СРЕДА</item>
+        <item>ЧЕТВЕРГ</item>
+        <item>ПЯТНИЦА</item>
+        <item>СУББОТА</item>
+        <item>ВОСКРЕСЕНЬЕ</item>
+    </string-array>
+
+    <string name="sm">СМ</string>
+    <string name="kg">КГ</string>
+    <string name="great">Прекрасно!</string>
+    <string name="bmi">Индекс массы вашего тела равен</string>
+    <string name="targetWeight">Выберите вес, к которому стремитесь</string>
+    <string name="under">&lt; 18.5</string>
+    <string name="normal">18.5 &#8211; 25</string>
+    <string name="over"> > 25</string>
+
+    <!-- Для registartion3 -->
+    <string name="awesome">Восхитительно!</string>
+    <string name="time_to_decide">Осталось выбрать направление тренировок.</string>
+    <string name="strength">СИЛА</string>
+    <string name="relief">РЕЛЬЕФ</string>
+    <string name="muscule_mass">МЫШЕЧНАЯ МАССА</string>
+    <string name="frequency_of_training_musule_mass">Частота тренировок: 3 &#8211; 5 раз в неделю</string>
+    <string name="frequency_of_training">Частота тренировок</string>
+    <string name="times35">3 &#8211; 5 раз в неделю</string>
+    <string name="times34">3 &#8211; 4 раза в неделю</string>
+    <string name="target_structure">Целевая структура</string>
+    <string name="target_structure_muscule_mass">Мускулатура</string>
+    <string name="target_structure_relief">Метаболизм</string>
+    <string name="target_structure_strength">Центральная нервная система</string>
+    <string name="diet">Диета</string>
+    <string name="diet_muscule_mass">Высококалорийная</string>
+    <string name="diet_relief">Низкоколарийная</string>
+    <string name="diet_strength">Среднеколарийная</string>
+    <string name="choose">ВЫБРАТЬ</string>
+	<string name="fat">Жиры</string>
+	<string name="carbohydrate">Углеводы</string>
+	<string name="protein">Белки</string>
+	<string name="quick_workout">Быстрая тренировка</string>
+	<string name="next_workout">СЛЕДУЮЩАЯ ТРЕНИРОВКА</string>
+	<string name="set_number">Подходы</string>
+	<string name="repeats_number">Повторы</string>
+	<string name="weight_for_exercise">Вес</string>
+    
+</resources>

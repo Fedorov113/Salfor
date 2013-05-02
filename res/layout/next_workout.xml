@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CardStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        style="@style/MainTextStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/next_workout"
+        android:textStyle="bold" />
+
+    <TextView
+        style="@style/tinyText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Четверг 21.02" />
+
+
+</LinearLayout>

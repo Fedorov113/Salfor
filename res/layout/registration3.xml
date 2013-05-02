@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registrationThreeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/main_padding" >
+
+        <TextView
+            android:id="@+id/irr"
+            style="@style/HeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/awesome" />
+
+        <TextView
+            style="@style/SubheaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/time_to_decide" />
+
+        <com.example.testing.NowLayout
+            android:id="@+id/chooseAimLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding8"
+            android:paddingRight="@dimen/padding8"
+            android:paddingTop="@dimen/padding8" >
+
+            <LinearLayout
+                android:id="@+id/musculeCardLayout"
+                style="@style/CardStyleNoPadding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/musculeHeader"
+                    style="@style/WhiteCondenced20"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:background="#1ABC9C"
+                    android:gravity="fill_vertical"
+                    android:includeFontPadding="true"
+                    android:paddingLeft="8dp"
+                    android:text="@string/muscule_mass" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp" >
+
+                    <TextView
+                        android:id="@+id/frequency1"
+                        style="@style/BoldCardText"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frequency_of_training" />
+
+                    <TextView
+                        android:id="@+id/times1"
+                        style="@style/MainCardText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/frequency1"
+                        android:gravity="left"
+                        android:text="@string/times35" />
+
+                    <TextView
+                        android:id="@+id/target1"
+                        style="@style/BoldCardText"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/frequency1"
+                        android:text="@string/target_structure" />
+
+                    <TextView
+                        android:id="@+id/structure1"
+                        style="@style/MainCardText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/frequency1"
+                        android:layout_toRightOf="@id/target1"
+                        android:gravity="left"
+                        android:text="@string/target_structure_muscule_mass" />
+
+                    <LinearLayout
+                        android:id="@+id/dietText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/target1"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:gravity="center"
+                            android:text="@string/fat" />
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="25"
+                            android:gravity="center"
+                            android:text="@string/protein" />
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="60"
+                            android:gravity="center"
+                            android:text="@string/carbohydrate" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dietImage1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dietText1"
+                        android:orientation="horizontal" >
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="15"
+                            android:background="@color/fat_color" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="35"
+                            android:background="@color/protein_color" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="50"
+                            android:background="@color/carbohydrate_color" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/chooseMuscule"
+                        style="@style/ButtonTextSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dietImage1"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="@string/choose" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reliefLayout"
+                style="@style/CardStyleNoPadding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/reliefHeader"
+                    style="@style/WhiteCondenced20"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:background="#2980B9"
+                    android:gravity="fill_vertical"
+                    android:includeFontPadding="true"
+                    android:paddingLeft="8dp"
+                    android:text="@string/relief" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp" >
+
+                    <TextView
+                        android:id="@+id/frequency2"
+                        style="@style/BoldCardText"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frequency_of_training" />
+
+                    <TextView
+                        android:id="@+id/times2"
+                        style="@style/MainCardText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/frequency2"
+                        android:gravity="left"
+                        android:text="@string/times34" />
+
+                    <TextView
+                        android:id="@+id/target2"
+                        style="@style/BoldCardText"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/frequency2"
+                        android:text="@string/target_structure" />
+
+                    <TextView
+                        android:id="@+id/structure2"
+                        style="@style/MainCardText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/frequency2"
+                        android:layout_toRightOf="@id/target2"
+                        android:gravity="left"
+                        android:text="@string/target_structure_relief" />
+
+                    <LinearLayout
+                        android:id="@+id/dietText2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/target2"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:gravity="center"
+                            android:text="@string/fat" />
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="25"
+                            android:gravity="center"
+                            android:text="@string/protein" />
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="60"
+                            android:gravity="center"
+                            android:text="@string/carbohydrate" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dietImage2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dietText2"
+                        android:orientation="horizontal" >
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="15"
+                            android:background="@color/fat_color" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="52"
+                            android:background="@color/protein_color" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="33"
+                            android:background="@color/carbohydrate_color" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/chooseRelief"
+                        style="@style/ButtonTextSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dietImage2"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="@string/choose" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- *************************************************************************************** -->
+
+            <LinearLayout
+                android:id="@+id/strength"
+                style="@style/CardStyleNoPadding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/strenghtHeader"
+                    style="@style/WhiteCondenced20"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:background="#2ECC71"
+                    android:gravity="fill_vertical"
+                    android:includeFontPadding="true"
+                    android:paddingLeft="8dp"
+                    android:text="@string/strength" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp" >
+
+                    <TextView
+                        android:id="@+id/frequency3"
+                        style="@style/BoldCardText"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frequency_of_training" />
+
+                    <TextView
+                        android:id="@+id/times3"
+                        style="@style/MainCardText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/frequency3"
+                        android:gravity="left"
+                        android:text="@string/times34" />
+
+                    <TextView
+                        android:id="@+id/target3"
+                        style="@style/BoldCardText"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/frequency3"
+                        android:text="@string/target_structure" />
+
+                    <TextView
+                        android:id="@+id/structure33"
+                        style="@style/MainCardText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/frequency3"
+                        android:layout_toRightOf="@id/target3"
+                        android:gravity="left"
+                        android:text="@string/target_structure_strength" />
+
+                    <LinearLayout
+                        android:id="@+id/dietText3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/structure33"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:gravity="center"
+                            android:text="@string/fat" />
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="25"
+                            android:gravity="center"
+                            android:text="@string/protein" />
+
+                        <TextView
+                            style="@style/tinyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="60"
+                            android:gravity="center"
+                            android:text="@string/carbohydrate" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dietImage3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dietText3"
+                        android:orientation="horizontal" >
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="15"
+                            android:background="@color/fat_color" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="25"
+                            android:background="@color/protein_color" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="60"
+                            android:background="@color/carbohydrate_color" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/chooseStrength"
+                        style="@style/ButtonTextSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dietImage3"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="@string/choose" />
+                </RelativeLayout>
+            </LinearLayout>
+        </com.example.testing.NowLayout>
+    </LinearLayout>
+
+</ScrollView>

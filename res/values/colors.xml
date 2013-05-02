@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="background_color_start">#3F3073</color>
+    <color name="background_color_end">#362D59</color>
+    <color name="main_background_color">#e5e5e5</color><!-- #E3E3E3 -->
+    <color name="white">#FFFFFF</color>
+    <color name="header_text_color">#2C3E50</color>
+    <color name="subheader_text_color">#34495E</color>
+    <color name="stroke_color">#D7D7D7</color><!-- #C7C7C7 --> 
+    <color name="main_text_color">#3c4046</color><!-- 4F4F4F -->
+    <color name="button_text_color">#3498DB</color><!-- 33B5E5 -->
+    <color name="stroke_normal">#644DB5</color>
+    <color name="button_color_start">#423278</color>
+    <color name="button_color_end">#3C3263</color> 
+    <color name="highlited_text">#FF6255</color>
+    <color name="highlited_stroke">#8BFF6255</color>
+	<color name="fat_color">#8BFF4444</color>
+	<color name="carbohydrate_color">#FFBB33</color>
+	<color name="protein_color">#99CC00</color>
+	<color name="tiny_text_color">#999999</color><!--  -->
+	<color name="exercise_text_color">#FF8800</color>
+	<color name="exercise_data_text_color">#a7aeb5</color>
+    
+</resources>

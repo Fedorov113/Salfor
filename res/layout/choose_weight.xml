@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="4dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp" >
+
+    <TextView
+        style="@style/HeaderStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/great" />
+
+    <TextView
+        style="@style/SubheaderStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/close_to_the_end" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="16dp" >
+
+        <TextView
+            android:id="@+id/bmi_text_view"
+            style="@style/MainTextStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bmi" />
+
+        <TextView
+            android:id="@+id/bmi_number_text_view"
+            style="@style/MainTextStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/stroke_color" >
+        </View>
+
+        <TextView
+            style="@style/MainTextStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/targetWeight" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/tinyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:gravity="right"
+                android:text="@string/under" />
+
+            <TextView
+                style="@style/tinyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:text="@string/normal"
+                android:textColor="#669900"
+                android:textSize="16sp" />
+
+            <TextView
+                style="@style/tinyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:gravity="left"
+                android:text="@string/over" />
+        </LinearLayout>
+
+        <com.example.testing.Draw
+            xmlns:app="http://schemas.android.com/apk/res/com.example.testing"
+            android:id="@+id/bmi_bar"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginBottom="10dp" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" android:clickable="false"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/nextBtn2"
+                style="@style/ButtonTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="@string/next" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

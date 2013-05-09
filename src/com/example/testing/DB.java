@@ -10,6 +10,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.SparseBooleanArray;
@@ -117,25 +118,43 @@ public class DB {
 	}
 
 	public boolean checkDatabase() {
-		if (mDB != null) {
-			return true;
+		SQLiteDatabase checkDB = null;
+
+		String DB_PATH = "/data/data/com.example.testing/databases/";
+		try {
+			String myPath = DB_PATH + DB_NAME;
+			checkDB = SQLiteDatabase.openDatabase(myPath, null,
+					SQLiteDatabase.OPEN_READONLY);
+
+		} catch (SQLiteException e) {
 		}
-		return false;
+
+		if (checkDB != null)
+			checkDB.close();
+
+		return checkDB != null ? true : false;
 	}
 
 	public void createProgramOnOneWeek() {
-		/*-----------------узнаем номер текущей недели и записываем в таблицу---------------*/
+		/*-----------------узнаем номер текущей недели и готовим к записи---------------*/
 		int currentWeek = new GregorianCalendar().get(Calendar.WEEK_OF_YEAR);
 		ContentValues cv = new ContentValues();
 		cv.put(WEEK_NUMBER, currentWeek);
-		//mDB.insert(TABLE_PROGRAM, null, cv);
 
 		/*-----------------узнаем номер текущеего дня недели---------------*/
 		int dayOfWeek = new GregorianCalendar().get(Calendar.DAY_OF_WEEK) - 1;
 		if (dayOfWeek == 0)
 			dayOfWeek = 7;
 		dayOfWeek--;
-
+		
+		/*----------если запись с текущей неделей сделана -выходим----------------*/
+		Cursor weekData = mDB.query(TABLE_PROGRAM, new String[]{"week"}, null, null, null,
+				null, null);
+		weekData.moveToLast();
+		if(weekData.getInt(0) == currentWeek)
+			return;
+		
+		
 		/*------------------теперь узнаем, есть ли на текущей неделе дни для тнерировки-------------------*/
 		daysForWorkout = mDB.query(TABLE_PROGRAM, sAllDays, null, null, null,
 				null, null);
@@ -149,6 +168,7 @@ public class DB {
 			}
 		}
 		
+		
 		ExercisesDB exercisesDB;
 		exercisesDB = new ExercisesDB(mCtx);
 		try {
@@ -159,7 +179,6 @@ public class DB {
 		}
 		exercisesDB.openDataBase();
 		
-		//cv.clear();
 		String sExercisesForOneDay;//в этой строке будут записаны номера упражнений на один день
 		if (isThereSomeGoodDays) {
 			for(int i = 0; i < 7; i++){
@@ -172,10 +191,9 @@ public class DB {
 			mDB.insert(TABLE_PROGRAM, null, cv);
 		}
 		exercisesDB.close();
-		//mDB.close();
 	}
 
-	public Vector<ExerciseView> getVectorOfExercises(){
+	public Vector<ExerciseView> getVectorOfExercises(Calendar cal){
 		Vector<ExerciseView> vectorOfExercises = new Vector<ExerciseView>();
 		String sExercisesForToday = "";
 		int currentWeek = new GregorianCalendar().get(Calendar.WEEK_OF_YEAR);
@@ -190,11 +208,16 @@ public class DB {
 		if(programForLastWeek.getInt(1) == currentWeek){
 			programForLastWeek.moveToFirst();
 			for(int i = 2; i < 9; i++){
-				String brr = programForLastWeek.getString(i);
-				
-				if((brr != null && !brr.isEmpty()) && (dayOfWeek <= (i-2))){
+				String oneDay = programForLastWeek.getString(i);
+				if((oneDay != null && !oneDay.isEmpty()) && (dayOfWeek <= (i-2))){
 					programForLastWeek.moveToLast();
 					sExercisesForToday = programForLastWeek.getString(i);
+					int k = i;
+					if(k == 8)
+						k = 1;
+					cal.setFirstDayOfWeek(Calendar.MONDAY);
+					cal.set(Calendar.WEEK_OF_YEAR, currentWeek);        
+					cal.set(Calendar.DAY_OF_WEEK, k);
 					i = 9;
 				}
 			}
@@ -217,14 +240,6 @@ public class DB {
 				i++;
 			}
 		}
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("MM dd yyyy");
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.WEEK_OF_YEAR, currentWeek);        
-		cal.set(Calendar.DAY_OF_WEEK, dayOfWeek);
-		//System.out.println(sdf.format(cal.getTime()));    
-		
-		
 		
 		return vectorOfExercises;
 	}

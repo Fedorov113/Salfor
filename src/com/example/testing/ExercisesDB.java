@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.Vector;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -25,15 +26,10 @@ public class ExercisesDB extends SQLiteOpenHelper {
 	private static String DB_PATH = "/data/data/com.example.testing/databases/";
 	private static String DB_NAME = "exercise_data";
 	private static final String TABLE_EXERCISE = "exercises";
+	public static final String CURRENT_WEIGHT = "curr_weight";
 	private SQLiteDatabase myDataBase;
 	private final Context myContext;
 	private static int musculeGroupNumber = 3;
-	// private int[] groupOne = new int[] { 1, 3, 4, 5, 6 };
-	// private int[] groupTwo = new int[] { 7, 9, 10, 11, 12 };
-	// private int[] groupThree = new int[] { 2, 14, 8, 13 };
-	// private String[] sGroupOne = new String[] { "1", "3", "4", "5", "6" };
-	// private String[] sGroupTwo = new String[] { "7", "9", "10", "11", "12" };
-	// private String[] sGroupThree = new String[] { "2", "14", "8", "13" };
 	private Map<Integer, Integer> mGroupOne = new HashMap<Integer, Integer>();
 	private Map<Integer, Integer> mGroupTwo = new HashMap<Integer, Integer>();
 	private Map<Integer, Integer> mGroupThree = new HashMap<Integer, Integer>();
@@ -47,7 +43,7 @@ public class ExercisesDB extends SQLiteOpenHelper {
 	public void createDataBase() throws IOException {
 		boolean dbExist = checkDataBase();
 		if (dbExist) {
-			// do nothing - database already exist
+			// если база данных уже есть - ничего не делаем
 		} else {
 			/*----------------тут создается пустая база-----*/
 			this.getReadableDatabase();
@@ -77,7 +73,6 @@ public class ExercisesDB extends SQLiteOpenHelper {
 					SQLiteDatabase.OPEN_READONLY);
 
 		} catch (SQLiteException e) {
-			// database does't exist yet.
 		}
 
 		if (checkDB != null)
@@ -86,30 +81,21 @@ public class ExercisesDB extends SQLiteOpenHelper {
 		return checkDB != null ? true : false;
 	}
 
-	/**
-	 * Copies your database from your local assets-folder to the just created
-	 * empty database in the system folder, from where it can be accessed and
-	 * handled. This is done by transfering bytestream.
-	 * */
+	
 	private void copyDataBase() throws IOException {
 
-		// Open your local db as the input stream
 		InputStream myInput = myContext.getAssets().open(DB_NAME);
 
-		// Path to the just created empty db
 		String outFileName = DB_PATH + DB_NAME;
 
-		// Open the empty db as the output stream
 		OutputStream myOutput = new FileOutputStream(outFileName);
 
-		// transfer bytes from the inputfile to the outputfile
 		byte[] buffer = new byte[1024];
 		int length;
 		while ((length = myInput.read(buffer)) > 0) {
 			myOutput.write(buffer, 0, length);
 		}
 
-		// Close the streams
 		myOutput.flush();
 		myOutput.close();
 		myInput.close();
@@ -118,10 +104,9 @@ public class ExercisesDB extends SQLiteOpenHelper {
 
 	public void openDataBase() throws SQLException {
 
-		// Open the database
 		String myPath = DB_PATH + DB_NAME;
 		myDataBase = SQLiteDatabase.openDatabase(myPath, null,
-				SQLiteDatabase.OPEN_READONLY);
+				SQLiteDatabase.OPEN_READWRITE);
 
 	}
 
@@ -166,18 +151,17 @@ public class ExercisesDB extends SQLiteOpenHelper {
 						exercisesForOneDay.add(data.getInt(0));
 						i++;
 						currentExerciseNumber++;
-					} 
-					else {
-						if (!(exercisesForOneDay.elementAt(currentExerciseNumber - 1) == data
+					} else {
+						if (!(exercisesForOneDay
+								.elementAt(currentExerciseNumber - 1) == data
 								.getInt(0))) {
 							exercisesForOneDay.add(data.getInt(0));
 							i++;
 							currentExerciseNumber++;
 						}
 					}
-				} 
-				else if (randomExercise == 0) {
-					if(howManyExercises == 1){
+				} else if (randomExercise == 0) {
+					if (howManyExercises == 1) {
 						data.moveToFirst();
 						exercisesForOneDay.add(data.getInt(0));
 						i++;
@@ -188,10 +172,11 @@ public class ExercisesDB extends SQLiteOpenHelper {
 			}
 		}
 
-		for(int j = 0; j < exercisesForOneDay.size(); j++){
-				sExercisesForOneDay = sExercisesForOneDay + String.valueOf(exercisesForOneDay.elementAt(j)) + ",";
+		for (int j = 0; j < exercisesForOneDay.size(); j++) {
+			sExercisesForOneDay = sExercisesForOneDay
+					+ String.valueOf(exercisesForOneDay.elementAt(j)) + ",";
 		}
-		
+
 		return sExercisesForOneDay;
 	}
 
@@ -212,17 +197,20 @@ public class ExercisesDB extends SQLiteOpenHelper {
 
 	}
 
-	public String getExerciseName(int exerciseNumber) {
-		String[] columns = new String[] { "name" };
+	public ExerciseData getExerciseName(int exerciseNumber) {
+		// String[] columns = new String[] { "name" };
 		String selection = "_id=?";
 		String sWhatExercise = String.valueOf(exerciseNumber);
 		String[] selectionArgs = new String[] { sWhatExercise };
-		Cursor cursor = myDataBase.query(TABLE_EXERCISE, columns, selection, selectionArgs, null,
-				null, null);
-		String name;
+		Cursor cursor = myDataBase.query(TABLE_EXERCISE, null, selection,
+				selectionArgs, null, null, null);
 		cursor.moveToFirst();
-		name = cursor.getString(0);
-		return name;
+		
+		ExerciseData exercise = new ExerciseData(cursor.getString(1),
+				cursor.getInt(0), cursor.getInt(6), cursor.getInt(4),
+				cursor.getInt(5), cursor.getInt(3));
+
+		return exercise;
 	}
 
 	public void initializeMaps() {
@@ -241,6 +229,13 @@ public class ExercisesDB extends SQLiteOpenHelper {
 		mGroupThree.put(13, 2);
 		mGroupThree.put(14, 1);
 	}
+	
+	public void updateCurrentWeight(int newWeight, int exerciseID){
+		ContentValues cv = new ContentValues();
+		cv.put(CURRENT_WEIGHT, newWeight);
+		//String[] whereArgs = new String[] {exerciseCodeName};
+		myDataBase.update(TABLE_EXERCISE, cv, "_id" + "=" + exerciseID, null);
+	}
 
 	public Cursor getAllExercisesFromOneGroup(char whatGroup) {
 		// String[] columns = new String[] { "_id", "name" };
@@ -250,8 +245,6 @@ public class ExercisesDB extends SQLiteOpenHelper {
 		return myDataBase.query(TABLE_EXERCISE, null, selection, selectionArgs,
 				null, null, null);
 	}
-	
-
 
 	public int getMusculeGroupNumber() {
 		return musculeGroupNumber;

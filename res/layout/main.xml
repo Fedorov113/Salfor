@@ -4,33 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <AbsoluteLayout
-        android:id="@+id/timerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <com.example.testing.TimerCircle
-            xmlns:app="http://schemas.android.com/apk/res/com.example.testing"
-            android:id="@+id/timerCircle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textView112"
-            style="@style/GrayCondenced70"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
-
-    </AbsoluteLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_above="@+id/button1113"
-        android:background="@color/stroke_color" >
-    </View>
+    
 
     <Button
         android:id="@+id/button1113"
@@ -39,9 +13,111 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="4dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="4dp"
         android:text="ОТДЫХ" />
+
+    <AbsoluteLayout
+        android:id="@+id/timerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/button1113"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+         android:background="#f2f2f2" >
+
+        <com.example.testing.TimerCircle
+            xmlns:app="http://schemas.android.com/apk/res/com.example.testing"
+            android:id="@+id/timerCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/textView112"
+            style="@style/GrayCondenced70"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/repeatsNumberInTimer"
+            style="@style/numbersInTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20" />
+
+        <TextView
+            android:id="@+id/weightTextInTimer"
+            style="@style/textInTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="ВЕС" />
+
+        <TextView
+            android:id="@+id/weightNumberInTimer"
+            style="@style/numbersInTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="150" />
+
+        <TextView
+            android:id="@+id/repeatsTextInTimer"
+            style="@style/textInTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ПОВТОРОВ" />
+
+        <TextView
+            android:id="@+id/setsTextInTimer"
+            style="@style/textInTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ПОДХОД" />
+
+        <TextView
+            android:id="@+id/setsNumberInTimer"
+            style="@style/numbersInTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2/3" />
+    </AbsoluteLayout>
+    
+    <TextView
+        android:id="@+id/exerciseNameInTimer"
+        style="@style/exerciseNameBig"
+        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal" 
+        android:background="#1ABC9C"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:text="" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/exerciseNameInTimer"
+        android:background="#16A085" > 
+    </View>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/button1113"
+        android:background="@color/stroke_color" >
+    </View>
+
+    <ImageView
+        android:id="@+id/imageView111"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_below="@id/exerciseNameInTimer"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/down_arrow" />
 
 </RelativeLayout>

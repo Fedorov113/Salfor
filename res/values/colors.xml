@@ -8,7 +8,7 @@
     <color name="header_text_color">#2C3E50</color>
     <color name="subheader_text_color">#34495E</color>
     <color name="stroke_color">#D7D7D7</color><!-- #C7C7C7 --> 
-    <color name="main_text_color">#3c4046</color><!-- 4F4F4F -->
+    <color name="main_text_color">#696969</color><!-- 4F4F4F -->
     <color name="button_text_color">#3498DB</color><!-- 33B5E5 -->
     <color name="stroke_normal">#644DB5</color>
     <color name="button_color_start">#423278</color>

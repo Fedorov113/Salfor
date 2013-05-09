@@ -4,54 +4,52 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Paint.Cap;
-import android.graphics.Paint.Join;
 import android.graphics.RectF;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.AbsoluteLayout.LayoutParams;
 
 @SuppressLint("DrawAllocation")
 public class TimerCircle extends View {
 
 	private float angle = 0;
 	private float startAngle = -90;
-	Paint paintGreen = new Paint();
-	Paint paintDark = new Paint();
-	Paint paint = new Paint();
-	RectF oval;
-	RectF circle;
+	private float radius;
+	private Paint paintGreen = new Paint();
+	private Paint paintDark = new Paint();
+	private Paint paint = new Paint();
+	private RectF oval;
+	private RectF circle;
 	
 	public TimerCircle(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
-		int widthPx = getResources().getDisplayMetrics().widthPixels;
-		int heightPx = getResources().getDisplayMetrics().heightPixels;
+		
+		int widthPx = this.getResources().getDisplayMetrics().widthPixels;
+		int heightPx = this.getResources().getDisplayMetrics().heightPixels;
 		final float density = getResources().getDisplayMetrics().density;
-		int radius = widthPx / 2 - (int) (32 * density);
+		radius = widthPx / 2 -  (16 * density);
 		
-		
+		//для зелёной дуги
 		paintGreen.setAntiAlias(true);
 		paintGreen.setStyle(Paint.Style.STROKE);
 		paintGreen.setStrokeWidth(10*density);
-		paintGreen.setColor(0xFF16A085);
-		paintGreen.setStrokeCap(Cap.ROUND);
-		paintGreen.setStrokeJoin(Join.ROUND);
+		paintGreen.setColor(0xFF1ABC9C);
 		
+		//для синие дуги
 		paintDark.setAntiAlias(true);
 		paintDark.setStyle(Paint.Style.STROKE);
 		paintDark.setColor(0xFF507091);
 		paintDark.setStrokeWidth(10*density);
 		
+		//для внутренностей
 		paint.setAntiAlias(true);
-		paint.setStyle(Paint.Style.STROKE);
-		paint.setColor(0xFF507091);
+		paint.setStyle(Paint.Style.FILL);
+		paint.setColor(0xFF354a60);
 		paint.setStrokeWidth(2*density);
 		
 		oval = new RectF(widthPx/2 -radius, heightPx/2 - radius, widthPx/2 + radius, heightPx/2 + radius);
 		
-		radius = widthPx / 2 - (int) (39 * density);
+		radius = widthPx / 2 - (int) (23 * density);
 		circle = new RectF(widthPx/2 -radius, heightPx/2 - radius, widthPx/2 + radius, heightPx/2 + radius);
 	}
 
@@ -65,7 +63,7 @@ public class TimerCircle extends View {
 		//рисуем темную дугу
 		canvas.drawArc(oval, startAngle, -360+angle, false, paintDark);
 		
-		//рисуем темный тонкий кружок
+		//рисуем темные внутренности
 		canvas.drawArc(circle, 0, 360, false,  paint);
 		
 	}
@@ -73,6 +71,18 @@ public class TimerCircle extends View {
 	public void setAngle(float newAngle){
 		angle = newAngle;
 		invalidate();
-		//requestLayout();
 	}
+	
+	public float getRadius(){
+		return radius;
+	}
+	
+	public float getY(){
+		return radius;
+	}
+	
+	
+	//public void getPostionOfAngle(float whatAngle){
+		
+	//}
 }

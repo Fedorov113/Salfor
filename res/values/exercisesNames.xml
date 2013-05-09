@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ez_bar_curl">Подъём штанги на бицепс</string>
-    <string name="dumbbell_bicep_curl">Подъём гантелей на бицепс</string>
+    <string name="ez_bar_curl">Подъем штанги на бицепс</string>
+    <string name="dumbbell_bicep_curl">Подъем гантелей на бицепс</string>
     <string name="hummer_curls">Молотки</string>
     <string name="ez_bar_skullcrusher">Французский жим</string>
     <string name="triceps_dips">Отжимания спиной к скамье</string>
-    <string name="barbell_bench_press">Жим штанги лёжа</string>
+    <string name="barbell_bench_press">Жим штанги лежа</string>
     <string name="barbell_squat">Приседания со штангой</string>
     <string name="crunches">Прямые скуручивания</string>
     <string name="pullups">Подтягивания</string>
@@ -14,11 +14,11 @@
     <string name="leverage_shrug">Шраги со штангой</string>
     <string name="low_cable_crossover">Сведение нижних блоков</string>
     <string name="palms_down_wrist_curl_over_a_bench">Разгибания в запястьях</string>
-    <string name="front_two_dumbbell_raise">Подъём рук перед собой</string>
+    <string name="front_two_dumbbell_raise">Подъем рук перед собой</string>
     <string name="power_partials">Подъем гантелей через стороны</string>
     <string name="straight_arm_dumbbell_pullover">Пуловер</string>
     <string name="leg_press">Жим ногами</string>
-    <string name="lying_leg_curls">Сгибания ног лёжа</string>
+    <string name="lying_leg_curls">Сгибания ног лежа</string>
     <string name="smith_machine_calf_raise">Подъем на носки стоя</string>
     <string name="ab_roller">Тренажер Ab Roller</string>
     <string name="decline_oblique_crunch">Подъем туловища с поворотом</string>

@@ -20,18 +20,18 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		/* проверяем, сущечтвует ли база с профилем, если существует - запускаем архиглавное активити с тренировкой
+		//проверяем, сущечтвует ли база с профилем, если существует - запускаем архиглавное активити с тренировкой
 		db = new DB(this);
-		db.open();
 	    if(db.checkDatabase()){
 	    	Intent intent = new Intent(this, SuperMainActivity.class);
 	    	startActivity(intent);
 	    }
-		*/
+	    
 		setContentView(R.layout.activity_main);
 
 		createBtn = (Button) findViewById(R.id.createBtn);
 		backupBtn = (Button) findViewById(R.id.backupBtn);
+		backupBtn.setEnabled(false);
 		createBtn.setOnClickListener(this);
 		backupBtn.setOnClickListener(this);
 	}

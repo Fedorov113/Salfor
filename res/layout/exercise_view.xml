@@ -8,6 +8,7 @@
     <TextView
         android:id="@+id/exerciseName"
         style="@style/WhiteCondenced20No"
+        android:textSize="25sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -105,7 +106,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/repeats"
                 android:gravity="center_horizontal"
-                android:text="10 \n 6 \n 8" />
+                android:text="10" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -122,7 +123,7 @@
                 android:text="@string/weight_for_exercise" />
 
             <TextView
-                android:id="@+id/weight"
+                android:id="@+id/weightNumberTextView"
                 style="@style/exerciseData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -140,21 +141,22 @@
         android:layout_alignTop="@+id/exerciseIcon"
         android:layout_toRightOf="@+id/exerciseIcon" >
 
-    <Button
-        android:id="@+id/startExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="false"
-        android:layout_centerVertical="true"
-        android:text="НАЧАТЬ" />
-
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/startExercise"
-        android:src="@drawable/arrow_icon" />
+        android:src="@drawable/arrow_icon" /> -->
+
+    <Button
+        android:id="@+id/startExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="НАЧАТЬ"
+        android:textSize="18dp" />
 
     </RelativeLayout>
 

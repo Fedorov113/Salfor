@@ -73,6 +73,7 @@ public class RegistrationActivityOne extends Activity implements
 
 			db.addProfile(name, surname);
 			db.addWeight(weight, height, bmi);
+			db.close();
 
 			Intent intent = new Intent(this, ChooseWeightActivity.class);
 			startActivity(intent);

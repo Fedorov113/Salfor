@@ -3,6 +3,8 @@ package com.example.testing;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.EmbossMaskFilter;
+import android.graphics.MaskFilter;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,10 +20,10 @@ public class MyTimer extends Activity implements OnClickListener {
 	TimerCircle myTimerCircle;
 	ExerciseData exercise;
 	final int howLong = 60000, timeDelta = 20;
-	int weightWidth = 0, setsLeft, newWeight = 0;
+	int weightWidth = 0, setsLeft, newWeight = 0, previousSeconds = 0;
 	long previous, starttime = 0, starttime1 = 0;
 	float degreesForOneMilli, angleDelta, newAngle = 0, radius, delta;
-	
+
 	Button b;
 	Context mCtx;
 
@@ -34,14 +36,19 @@ public class MyTimer extends Activity implements OnClickListener {
 			int minutes = seconds / 60;
 			seconds = seconds % 60;
 			float angleDelta = (float) (360.0 / (howLong / (previous - millis)));
-			timeLeft.setText(String.format("%02d:%02d", minutes, seconds));
-			// if (newAngle >= 360) {
+			if (previousSeconds != seconds)
+				timeLeft.setText(String.format("%02d:%02d", minutes, seconds));
+			previousSeconds = seconds;
 			if (millis - 1000 <= 0) {
 
 				try {
 					myTimerCircle.setAngle(360);
 					b.setText("ÎÒÄÛÕ");
 					b.setEnabled(true);
+					int seconds1 = (int) (howLong / 1000);
+					int minutes1 = seconds / 60;
+					timeLeft.setText(String.format("%02d:%02d", minutes1,
+							seconds1 % 60));
 					h2.removeCallbacks(this);
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
@@ -84,17 +91,23 @@ public class MyTimer extends Activity implements OnClickListener {
 		setsLeft = exercise.setsNumber;
 		exerciseName = (TextView) findViewById(R.id.exerciseNameInTimer);
 		exerciseName.setText(exercise.name);
+		Typeface univers = Typeface.createFromAsset(getAssets(),
+				"Fonts/5140485.ttf");
+		exerciseName.setTypeface(univers);
+		exerciseName.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
 		int seconds = (int) (howLong / 1000);
 		int minutes = seconds / 60;
-		// Typeface myTypeface = Typeface.createFromAsset(getAssets(),
-		// "Fonts/Helvetica-Condensed-Light-Li.ttf");
 		Typeface helvetica = Typeface.createFromAsset(getAssets(),
 				"Fonts/Helvetica_Condenced-Normal Regular.ttf");
 		timeLeft = (TextView) findViewById(R.id.textView112);
-		// timeLeft.setTypeface(myTypeface);
-		timeLeft.setText(String.format("%02d:%02d", minutes, seconds % 60));
+		timeLeft.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+		MaskFilter filter1 = new EmbossMaskFilter(new float[] { 0.0f, -1.0f,
+				0.5f }, 0.8f, 15f, 1f);
+		timeLeft.getPaint().setMaskFilter(filter1);
 		timeLeft.setY(heightPx + delta);
+		timeLeft.invalidate();
+		timeLeft.setText(String.format("%02d:%02d", minutes, seconds % 60));
 
 		myTimerCircle = (TimerCircle) findViewById(R.id.timerCircle);
 		radius = myTimerCircle.getRadius();
@@ -173,6 +186,13 @@ public class MyTimer extends Activity implements OnClickListener {
 		weightText.setY(repeatsNumber.getY() + repeatsText.getTextSize());
 		weightNumber.setY(weightText.getY() + weightText.getTextSize() + delta);
 		weightNumber.setTypeface(myTypeface);
+
+		MaskFilter filter = new EmbossMaskFilter(new float[] { 0.0f, -1.0f,
+				0.5f }, 0.8f, 15f, 1f);
+		exerciseName.getPaint().setMaskFilter(filter);
+		exerciseName.invalidate();
+
+		// 
 	}
 
 	public void onUserSelectValue(String selectedValue) {

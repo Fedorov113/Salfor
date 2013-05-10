@@ -5,21 +5,29 @@
     android:layout_marginBottom="4dp"
     android:background="@drawable/dialog_full_holo_light_1" >
 
+    <!-- android:background="@drawable/qqq" -->
+
     <TextView
         android:id="@+id/exerciseName"
         style="@style/WhiteCondenced20No"
-        android:textSize="25sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/qqq"
+        android:background="#1ABC9C"
         android:gravity="fill_vertical"
         android:paddingBottom="4dp"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:paddingTop="4dp"
         android:text="Тут название упражнения" />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/exerciseName"
+        android:background="#16A085" > 
+    </View>
 
     <View
         android:id="@+id/view1"
@@ -141,23 +149,24 @@
         android:layout_alignTop="@+id/exerciseIcon"
         android:layout_toRightOf="@+id/exerciseIcon" >
 
-    <!--<ImageView
+        <!--
+        <ImageView
         android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/startExercise"
-        android:src="@drawable/arrow_icon" /> -->
+        android:src="@drawable/arrow_icon" />
+        -->
 
-    <Button
-        android:id="@+id/startExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="НАЧАТЬ"
-        android:textSize="18dp" />
-
+        <Button
+            android:id="@+id/startExercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="НАЧАТЬ"
+            android:textSize="18dp" />
     </RelativeLayout>
 
 </RelativeLayout>

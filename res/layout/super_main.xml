@@ -24,7 +24,9 @@
             android:orientation="vertical" >
 
             <TextView
-                style="@style/SubheaderStyle"
+                android:id="@+id/nextWorkoutText"
+                android:textSize="35sp"
+                style="@style/HeaderStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"

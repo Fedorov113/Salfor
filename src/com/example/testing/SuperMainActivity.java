@@ -9,7 +9,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.EmbossMaskFilter;
+import android.graphics.MaskFilter;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -40,6 +44,14 @@ public class SuperMainActivity extends Activity {
 
 		LinearLayout nextWorkoutCard = (LinearLayout) findViewById(R.id.cardsSuper);
 		date = (TextView) findViewById(R.id.dateText);
+		
+		TextView nWT = (TextView) findViewById(R.id.nextWorkoutText);
+		Typeface helvetica = Typeface.createFromAsset(getAssets(), "Fonts/5140485.ttf"); 
+		nWT.setTypeface(helvetica);
+		nWT.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+		MaskFilter filter = new EmbossMaskFilter(new float[] {0.0f, -1.0f, 0.5f}, 0.8f, 15f, 1f);
+		nWT.getPaint().setMaskFilter(filter);
+		nWT.invalidate();
 		
 		Intent oldIntent = getIntent();
 		Calendar mCalendar = Calendar.getInstance();

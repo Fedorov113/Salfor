@@ -34,12 +34,14 @@ public class TimerCircle extends View {
 		paintGreen.setStyle(Paint.Style.STROKE);
 		paintGreen.setStrokeWidth(10*density);
 		paintGreen.setColor(0xFF1ABC9C);
+		//paintGreen.setShadowLayer(8 * density, 0.0f, 2 * density, 0xFF000000);
 		
 		//для синие дуги
 		paintDark.setAntiAlias(true);
 		paintDark.setStyle(Paint.Style.STROKE);
 		paintDark.setColor(0xFF507091);
 		paintDark.setStrokeWidth(10*density);
+		//paintDark.setShadowLayer(8 * density, 0.0f, 2 * density, 0xFF000000);
 		
 		//для внутренностей
 		paint.setAntiAlias(true);

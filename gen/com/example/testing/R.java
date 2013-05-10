@@ -139,7 +139,7 @@ containing a value of this type.
         public static final int bmi_number_text_view=0x7f0c0007;
         public static final int bmi_text_view=0x7f0c0006;
         public static final int button1113=0x7f0c0017;
-        public static final int cardsSuper=0x7f0c0050;
+        public static final int cardsSuper=0x7f0c0051;
         public static final int chooseAimLayout=0x7f0c0032;
         public static final int chooseMuscule=0x7f0c003b;
         public static final int chooseRelief=0x7f0c0044;
@@ -147,7 +147,7 @@ containing a value of this type.
         public static final int chosen=0x7f0c0025;
         public static final int chronometer1=0x7f0c0016;
         public static final int createBtn=0x7f0c0000;
-        public static final int dateText=0x7f0c004f;
+        public static final int dateText=0x7f0c0050;
         public static final int dietImage1=0x7f0c003a;
         public static final int dietImage2=0x7f0c0043;
         public static final int dietImage3=0x7f0c004c;
@@ -168,11 +168,12 @@ containing a value of this type.
         public static final int irr=0x7f0c0031;
         public static final int linearLayout1=0x7f0c000e;
         public static final int lvDays=0x7f0c0005;
-        public static final int menu_settings=0x7f0c0051;
+        public static final int menu_settings=0x7f0c0052;
         public static final int musculeCardLayout=0x7f0c0033;
         public static final int musculeHeader=0x7f0c0034;
         public static final int nextBtn=0x7f0c0030;
         public static final int nextBtn2=0x7f0c000a;
+        public static final int nextWorkoutText=0x7f0c004f;
         public static final int next_workout_card=0x7f0c004e;
         public static final int numberPicker1=0x7f0c0009;
         public static final int pick_gender=0x7f0c002d;

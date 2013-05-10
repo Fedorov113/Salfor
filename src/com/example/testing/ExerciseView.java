@@ -3,6 +3,8 @@ package com.example.testing;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.EmbossMaskFilter;
+import android.graphics.MaskFilter;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -33,9 +35,11 @@ public class ExerciseView extends LinearLayout implements OnClickListener{
 		View view = layoutInflater.inflate(R.layout.exercise_view, this);
 		
 		startExercise = (Button) view.findViewById(R.id.startExercise);
-		Typeface helvetica = Typeface.createFromAsset(context.getAssets(), "Fonts/Helvetica_Condenced-Normal Regular.ttf"); 
+		Typeface helvetica = Typeface.createFromAsset(context.getAssets(), "Fonts/5140485.ttf"); 
 		exerciseNameTextView = (TextView) view.findViewById(R.id.exerciseName);
 		exerciseNameTextView.setTypeface(helvetica);
+		exerciseNameTextView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+		
 		
 		setsNumberTextView = (TextView) view.findViewById(R.id.setNumberTextView);
 		
@@ -55,6 +59,10 @@ public class ExerciseView extends LinearLayout implements OnClickListener{
 		repNumberTextView.setText(Integer.toString(exercise.repeatsNumber));
 		weightTextView.setText(Integer.toString(exercise.currentWeight));
 		exercise.name = name;
+		
+		MaskFilter filter = new EmbossMaskFilter(new float[] {0.0f, -1.0f, 0.5f}, 0.8f, 15f, 1f);
+		exerciseNameTextView.getPaint().setMaskFilter(filter);
+		exerciseNameTextView.invalidate();
 		invalidate();
 		requestLayout();
 	}
